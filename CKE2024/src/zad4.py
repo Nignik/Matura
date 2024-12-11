@@ -60,8 +60,26 @@ def sol3(file_name):
     for comb in combinations(sq, 5):
       ans[2] = max(ans[2], sum(comb))
       
-  return ans 
+  return ans
 
+def sol3_normalnie(file_name):
+  sqs = load_data(file_name)
+  
+  types = defaultdict(list)
+  for x in sqs:
+    types[x[0]].append(x[1])
+    
+  for key in types:
+    types[key].sort(reverse=True)
+  
+  ans = [0, 0, 0] 
+  for sq in types.values():
+    ans[0] = max(ans[0], sum(sq[:2]))
+    ans[1] = max(ans[1], sum(sq[:3]))
+    ans[2] = max(ans[2], sum(sq[:5]))
+
+  return ans
+  
 print(f"Podpunkt 1:\nTest: {sol1('data/prostokaty_przyklad.txt')}\nRozwiazanie: {sol1('data/prostokaty.txt')}\n\n")
 print(f"Podpunkt 2:\nTest: {sol2('data/prostokaty_przyklad.txt')}\nRozwiazanie: {sol2('data/prostokaty.txt')}\n\n")
-print(f"Podpunkt 3:\nTest: {sol3('data/prostokaty_przyklad.txt')}\nRozwiazanie: {sol3('data/prostokaty.txt')}\n\n")
+print(f"Podpunkt 3:\nTest: {sol3_normalnie('data/prostokaty_przyklad.txt')}\nRozwiazanie: {sol3_normalnie('data/prostokaty.txt')}\n\n")
