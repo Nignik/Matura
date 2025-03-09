@@ -1,0 +1,11 @@
+6.1
+Kobiet: 161
+Mężczyzn: 119
+
+6.2
+Srod_lok	PoliczOfId
+autobus	25
+pociag	39
+rower	104
+samochod	43
+tramwaj	69
